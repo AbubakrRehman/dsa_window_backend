@@ -1,0 +1,12 @@
+const ErrorCode   = {
+    USER_ALREADY_EXIST : 1000,
+    USER_NOT_FOUND : 1001,
+    UNAUTHARIZED : 1002,
+    TOPIC_NOT_FOUND: 1003,
+    QUESTION_NOT_FOUND: 2000,
+    PROFILE_PIC_NOT_FOUND: 3000,
+    INTERNAL_SERVER_ERROR: 8000
+
+}
+
+module.exports = ErrorCode; 
