@@ -240,7 +240,7 @@ const resetPassword = async (req, res, next) => {
 }
 
 const verifyPasswordResetToken = async (req, res, next) => {
-    const { token } = req.params;
+    const { token } = req.body;
 
     const passwordResetToken = await prismaClient.passwordResetToken.findFirst({
         where: {

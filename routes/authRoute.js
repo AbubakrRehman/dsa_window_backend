@@ -15,7 +15,7 @@ router.post("/login", handleError(login))
 
 router.post("/email-password-reset-link", handleError(emailPasswordResetLink))
 
-router.get("/verify-token/:token", handleError(verifyPasswordResetToken))
+router.post("/verify-password-reset-token", handleError(verifyPasswordResetToken))
 
 router.post("/reset-password", handleError(resetPassword))
 
