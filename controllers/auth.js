@@ -93,7 +93,7 @@ const me = async (req, res, next) => {
 }
 
 
-const forgetPassword = async (req, res, next) => {
+const emailPasswordResetLink = async (req, res, next) => {
 
     const SECRET_KEY = '1234567';
     const { email } = req.body;
@@ -239,7 +239,7 @@ const resetPassword = async (req, res, next) => {
     }
 }
 
-const verifyToken = async (req, res, next) => {
+const verifyPasswordResetToken = async (req, res, next) => {
     const { token } = req.params;
 
     const passwordResetToken = await prismaClient.passwordResetToken.findFirst({
@@ -262,7 +262,7 @@ const verifyToken = async (req, res, next) => {
 }
 
 
-module.exports = { signup, login, me, forgetPassword, resetPassword, verifyToken }
+module.exports = { signup, login, me, emailPasswordResetLink, resetPassword, verifyPasswordResetToken }
 
 
 
