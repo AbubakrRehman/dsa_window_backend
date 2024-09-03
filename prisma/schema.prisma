@@ -20,18 +20,28 @@ enum Role {
 }
 
 model User {
-  id         Int             @id @default(autoincrement())
-  name       String
-  email      String          @unique
-  password   String
-  role       Role            @default(USER)
-  questions  questionEvent[]
-  profilePic ProfilePic?
-  createdAt  DateTime        @default(now())
-  updatedAt  DateTime        @updatedAt
+  id                 Int                 @id @default(autoincrement())
+  name               String
+  email              String              @unique
+  password           String
+  role               Role                @default(USER)
+  passwordResetToken passwordResetToken?
+  questions          questionEvent[]
+  profilePic         ProfilePic?
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
 
   @@fulltext([name, email])
   @@map("users")
+}
+
+model passwordResetToken {
+  id     Int    @id @default(autoincrement())
+  title  String
+  userId Int    @unique
+  user   User   @relation(fields: [userId], references: [id])
+
+  @@map("password_reset_tokens")
 }
 
 model Topic {

@@ -193,8 +193,7 @@ const getUserQuestionsByTopicIdWithStatus = async (req, res, next) => {
     let { isBookmarked, isCompleted, search, sortBy } = req.query;
     let order = sortBy.substring(0, 1);
     sortBy = sortBy.substring(1,);
-    console.log("order bhai order", order);
-
+    
     //questionsList
     let questions = await prismaClient.question.findMany({
         where: {

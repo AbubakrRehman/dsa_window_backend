@@ -10,4 +10,17 @@ const json = (param) => {
 };
 
 
-module.exports = { calculateFormattedAddress, json };
+const sendMail = (to, subject, emailText, emailHTML) => {
+
+    return transporter.sendMail({
+        from: email, // sender address
+        to: email, // list of receivers
+        subject: subject, // Subject line
+        text: emailText, // plain text body
+        html: emailHTML, // html body
+    });
+
+}
+
+
+module.exports = { calculateFormattedAddress, json, sendMail };

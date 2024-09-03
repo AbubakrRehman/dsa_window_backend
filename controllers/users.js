@@ -41,9 +41,6 @@ const getAllUsers = async (req, res, next) => {
 
     let orderBy = {};
     orderBy[`${sortBy}`] = order === '-' ? 'desc': 'asc';
-    
-    
-    console.log("object", orderBy);
 
     const allUsers = await prismaClient.user.findMany({
         where: {
@@ -75,8 +72,6 @@ const getAllUsers = async (req, res, next) => {
         skip: (+req.query.page - 1) * recordsPerPage,
         take: recordsPerPage
     });
-
-    console.log("resres",users);
 
     res.json({
         count: Math.ceil(allUsers.length / recordsPerPage),
