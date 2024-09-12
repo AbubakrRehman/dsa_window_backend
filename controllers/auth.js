@@ -1,12 +1,12 @@
 
 const jwt = require('jsonwebtoken');
-const nodemailer = require("nodemailer");
 const { PrismaClient } = require('@prisma/client');
 const AlreadyExistException = require('../exceptions/alreadyExist');
 const ErrorCode = require('../exceptions/errorCode');
 const NotFoundException = require('../exceptions/notFound');
 const ExpiredTokenException = require('../exceptions/expiredToken');
 const BadRequestException = require('../exceptions/badRequest');
+const { sendMail, getEmailVerificationTemplate, getPasswordResetEmailTemplate } = require('../utils');
 
 const prismaClient = new PrismaClient({
     // log: ['query']
@@ -20,11 +20,11 @@ const signup = async (req, res, next) => {
         where: { email: email }
     })
 
-    if (user) {
+    if (user && user.isVerified) {
         return next(new AlreadyExistException("User already exists!!", ErrorCode.USER_ALREADY_EXIST))
     }
 
-    try {
+    if (!user) {
         let createdUser = await prismaClient.user.create({
             data: {
                 name: "",
@@ -33,53 +33,123 @@ const signup = async (req, res, next) => {
             }
         })
 
-        const token = jwt.sign({
+        const emailVerificationToken = jwt.sign({
             userId: createdUser.id
-        }, 'SECRET_KEY');
+        }, 'EV_SECRET_KEY');
 
-        res.json({ user: createdUser, token: token })
+        await prismaClient.emailVerificationToken.create({
+            data: {
+                title: emailVerificationToken,
+                userId: createdUser.id
+            }
+        })
 
-    } catch (err) {
-        console.log("error", err);
+        const link = `"http://localhost:8090/api/auth/verify-email/${emailVerificationToken}"`;
+        const emailHTML = getEmailVerificationTemplate(link);
+        try {
+            await sendMail(email, "Email Verification Request", "", emailHTML);
+            return res.json({ message: "User registered sucessfully." })
+        } catch (err) {
+
+            await prismaClient.emailVerificationToken.delete({
+                where: {
+                    userId: createdUser.id
+                }
+            })
+
+            await prismaClient.user.delete({
+                where: {
+                    id: createdUser.id
+                }
+            })
+
+            return next(new BadRequestException("User registration failed", ErrorCode.USER_NOT_FOUND))
+        }
     }
 
 
+    if (user && !user.isVerified) {
 
+        try {
+            await prismaClient.emailVerificationToken.delete({
+                where: {
+                    userId: user.id
+                }
+            })
+        } catch (err) {
+            console.log("token already deleted from dtabase");
+        }
 
+        const emailVerificationToken = jwt.sign({
+            userId: user.id
+        }, 'EV_SECRET_KEY');
 
+        await prismaClient.emailVerificationToken.create({
+            data: {
+                title: emailVerificationToken,
+                userId: user.id
+            }
+        })
 
+        const link = `"http://localhost:8090/api/auth/verify-email/${emailVerificationToken}"`;
+        const emailHTML = getEmailVerificationTemplate(link);
 
+        await sendMail(email, "Email Verification Request", "", emailHTML);
+        res.json({ message: "verification link is sent to your mail. Please verify." })
 
-
-
+    }
 }
-
 
 const login = async (req, res, next) => {
 
-    try {
-        const { email, password } = req.body;
-        let user = await prismaClient.user.findFirst({
-            where: { email: email }
+    const { email, password } = req.body;
+    let user = await prismaClient.user.findFirst({
+        where: { email: email }
+    })
+
+    if (!user) {
+        return next(new NotFoundException("User does not exists!!", ErrorCode.USER_NOT_FOUND))
+    }
+
+    if (user && !user.isVerified) {
+
+        try {
+            await prismaClient.emailVerificationToken.delete({
+                where: {
+                    userId: user.id
+                }
+            })
+        } catch (err) {
+            console.log("deletion error");
+        }
+
+        const emailVerificationToken = jwt.sign({
+            userId: user.id
+        }, 'EV_SECRET_KEY');
+
+        await prismaClient.emailVerificationToken.create({
+            data: {
+                title: emailVerificationToken,
+                userId: user.id
+            }
         })
 
-        if (!user) {
-            return next(new NotFoundException("User does not exists!!", ErrorCode.USER_NOT_FOUND))
-        }
-
-        if(password !== user.password) {
-            return next(new BadRequestException("Password doesn't match", ErrorCode.PASSWORD_DOESNT_EXIST))
-        }
-
-        const token = jwt.sign({
-            userId: user.id
-        }, 'SECRET_KEY')
-
-        res.json({ user, token })
-
-    } catch (error) {
-        next(error)
+        const link = `"http://localhost:8090/api/auth/verify-email/${emailVerificationToken}"`;
+        const emailHTML = getEmailVerificationTemplate(link);
+        
+        await sendMail(email, "Email Verification Request", "", emailHTML);
+        return res.json({ message: "verification link has been sent to your email.Pls verify" })
     }
+
+    if (password !== user.password) {
+        return next(new BadRequestException("Password doesn't match", ErrorCode.PASSWORD_DOESNT_EXIST))
+    }
+
+    const token = jwt.sign({
+        userId: user.id
+    }, 'SECRET_KEY')
+
+    return res.json({ user, token })
 }
 
 
@@ -95,9 +165,7 @@ const me = async (req, res, next) => {
 
 const emailPasswordResetLink = async (req, res, next) => {
 
-    const SECRET_KEY = '1234567';
     const { email } = req.body;
-
     const user = await prismaClient.user.findFirst({
         where: {
             email: email
@@ -108,18 +176,9 @@ const emailPasswordResetLink = async (req, res, next) => {
         return next(new NotFoundException("User not found", ErrorCode.USER_NOT_FOUND))
     }
 
-    let token = jwt.sign({ userId: user.id }, SECRET_KEY, {
+    let token = jwt.sign({ userId: user.id }, "Password_Reset_Token", {
         expiresIn: 2 * 60
     })
-
-    //if theres already a passwordResetToken then delete and inset this one
-
-    // const passwordResetToken = await prismaClient.passwordResetToken.findFirst({
-    //     where: {
-    //         title: token
-    //     }
-    // })
-
 
     try {
         const deletedpasswordResetToken = await prismaClient.passwordResetToken.delete({
@@ -139,54 +198,12 @@ const emailPasswordResetLink = async (req, res, next) => {
             }
         })
 
-        const link = `http://localhost:3000/reset-password/${token}`;
-
-        let transporter = nodemailer.createTransport({
-            host: 'live.smtp.mailtrap.io',
-            port: 587,
-
-            auth: {
-                user: 'api',
-                pass: '4deb65af0d8e68f9c5f4cd5d606d85e7'
-
-            }
-        });
+        const link = `"http://localhost:3000/reset-password/${token}"`;
+        const emailHTML = getPasswordResetEmailTemplate(link);
 
         try {
-            const info = await transporter.sendMail({
-                from: 'mailtrap@demomailtrap.com', // sender address
-                to: email, // list of receivers
-                subject: "Password Reset Request", // Subject line
-                text: "Hello world?", // plain text body
-                html:
-                    `
-                <head>
-                    <style>
-                    .reset-password-btn {
-                        padding: 5px 10px;
-                        background-color: gray;
-                        color: white;
-                        text-transform: uppercase;
-                        text-decoration: none;
-                        border-radius: 5px;
-                    }
-                    </style>
-                </head>
-                
-                <body>
-                    <h1>Please reset your password</h1>
-                    <div>
-                        <p>Hello,</p>
-                        <p>We have sent you this email in response to your request to reset your password on DSA Window.</p>
-                        <p>To reset your password, please follow the link below:</p>
-                    
-                    </div>
-                    <a href=${link} class="reset-password-btn">Reset Password</a>
-                </body>
-                </html>`
-            });
-
-            res.status(200).json({ message: "Mail sent successfully." })
+            await sendMail(email, "Password Reset Request", "", emailHTML);
+            res.status(200).json({ message: "Mail sent successfully." });
         } catch (err) {
             res.status(400).json({ message: "Email Transfer Failed" })
         }
@@ -209,9 +226,8 @@ const resetPassword = async (req, res, next) => {
         return next(new BadRequestException("Token is Expired", ErrorCode.EXPIRED_TOKEN))
     }
 
-    const SECRET_KEY = '1234567';
     try {
-        payload = jwt.verify(token, SECRET_KEY);
+        payload = jwt.verify(token, 'Password_Reset_Token');
         await prismaClient.user.update({
             where: {
                 id: +payload.userId
@@ -220,19 +236,19 @@ const resetPassword = async (req, res, next) => {
             }
         })
 
-        try{
+        try {
             await prismaClient.passwordResetToken.delete({
-                where : {
+                where: {
                     title: token,
-                    userId: payload.userId 
+                    userId: payload.userId
                 }
             })
-        } catch(err) {
+        } catch (err) {
             console.log("err", err);
         }
-       
 
-        res.json({message: "Password Reset successful"})
+
+        res.json({ message: "Password Reset successful" })
 
     } catch (err) {
         return next(new BadRequestException("Token is Expired", ErrorCode.EXPIRED_TOKEN))
@@ -252,17 +268,62 @@ const verifyPasswordResetToken = async (req, res, next) => {
         return next(new BadRequestException("Token is Invalid", ErrorCode.EXPIRED_TOKEN))
     }
 
-    const SECRET_KEY = '1234567';
     try {
-        payload = jwt.verify(token, SECRET_KEY);
+        payload = jwt.verify(token, 'Password_Reset_Token');
         res.json({ message: "Token is Valid" });
     } catch (err) {
         return next(new BadRequestException("Token is Invalid", ErrorCode.EXPIRED_TOKEN))
     }
 }
 
+const verifyEmail = async (req, res, next) => {
+    const { token } = req.params;
 
-module.exports = { signup, login, me, emailPasswordResetLink, resetPassword, verifyPasswordResetToken }
+    try {
+        let payload = jwt.verify(token, 'EV_SECRET_KEY');
+
+        const user = await prismaClient.user.findFirst({
+            where: {
+                id: payload.userId
+            }
+        })
+
+        if (user.isVerified) {
+            return res.render("email_verification_result", { emailVerified: true })
+        }
+
+        const emailVerificationToken = await prismaClient.emailVerificationToken.findFirst({
+            where: {
+                title: token
+            }
+        })
+
+        if (!emailVerificationToken) {
+            return res.render("email_verification_result", { emailVerified: false })
+        }
+
+        await prismaClient.user.update({
+            where: {
+                id: payload.userId
+            }, data: {
+                isVerified: true
+            }
+        })
+
+        await prismaClient.emailVerificationToken.delete({
+            where: {
+                id: emailVerificationToken.id
+            }
+        })
+
+        return res.render("email_verification_result", { emailVerified: true })
+    } catch (err) {
+        return res.render("email_verification_result", { emailVerified: false })
+    }
+}
+
+
+module.exports = { verifyEmail, signup, login, me, emailPasswordResetLink, resetPassword, verifyPasswordResetToken }
 
 
 

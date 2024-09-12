@@ -4,6 +4,7 @@ const { PrismaClient, Prisma } = require('@prisma/client');
 const ErrorCode = require('../exceptions/errorCode');
 const { json } = require('../utils');
 const { search } = require('../routes/topicsRoute');
+const UnauthorizedException = require('../exceptions/unauthorized');
 
 const prismaClient = new PrismaClient({
     // log: ['query']
@@ -121,6 +122,10 @@ const addQuestionToTopic = async (req, res, next) => {
 
 const deleteTopic = async (req, res, next) => {
 
+    if(req.user.role !== 'ADMIN'){
+        next(new UnauthorizedException("User not authorized", ErrorCode.UNAUTHARIZED))
+    }
+
     let topic = await prismaClient.topic.delete({
         where: {
             id: +req.params.id
@@ -131,6 +136,10 @@ const deleteTopic = async (req, res, next) => {
 }
 
 const deleteQuestion = async (req, res, next) => {
+    
+    // logged in user has the role of admin or not
+    //fetach details of users from database n check the role
+    //if above sucessful then onlty perform below
 
     try {
         let question = await prismaClient.question.delete({

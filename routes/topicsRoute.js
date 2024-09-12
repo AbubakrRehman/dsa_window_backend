@@ -18,9 +18,9 @@ router.get("/", [authMiddleware],handleError(getAllUserTopics))
 
 router.post("/",  handleError(addTopic))
 
+// mapp[clinetID] = {user details}
 
-
-router.delete("/:id",  handleError(deleteTopic))
+router.delete("/:id",[authMiddleware],  handleError(deleteTopic))
 
 router.put("/:id",  handleError(updateTopic))
 

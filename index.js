@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // CORS options to allow requests from frontend running on port 5500
 const corsOptions = {
-    origin: 'http://localhost:3000', // Allow only requests from this origin
+    origin: ['http://localhost:3000','http://localhost:3001'], // Allow only requests from this origin
     methods: 'GET,POST, PUT, DELETE', // Allow only these methods
     allowedHeaders: ['Content-Type', 'Authorization'] // Allow only these headers
 };
@@ -44,8 +44,12 @@ app.use("/api/topics", topicsRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/files", filesRoute);
 
-app.get("/api/practice", (req,res, next) => {
-    res.render("index",{token: "abc"})
+app.get("/api/practice", (req, res, next) => {
+    res.render("index", { token: "abc" })
+})
+
+app.get("*", (req, res, next) => {
+    res.send("page not found")
 })
 
 app.use(errorMiddleware);

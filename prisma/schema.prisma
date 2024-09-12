@@ -20,16 +20,18 @@ enum Role {
 }
 
 model User {
-  id                 Int                 @id @default(autoincrement())
-  name               String
-  email              String              @unique
-  password           String
-  role               Role                @default(USER)
-  passwordResetToken passwordResetToken?
-  questions          questionEvent[]
-  profilePic         ProfilePic?
-  createdAt          DateTime            @default(now())
-  updatedAt          DateTime            @updatedAt
+  id                     Int                     @id @default(autoincrement())
+  name                   String
+  email                  String                  @unique
+  password               String
+  role                   Role                    @default(USER)
+  isVerified             Boolean                 @default(false)
+  passwordResetToken     passwordResetToken?
+  emailVerificationToken emailVerificationToken?
+  questions              questionEvent[]
+  profilePic             ProfilePic?
+  createdAt              DateTime                @default(now())
+  updatedAt              DateTime                @updatedAt
 
   @@fulltext([name, email])
   @@map("users")
@@ -39,9 +41,18 @@ model passwordResetToken {
   id     Int    @id @default(autoincrement())
   title  String
   userId Int    @unique
-  user   User   @relation(fields: [userId], references: [id])
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("password_reset_tokens")
+}
+
+model emailVerificationToken {
+  id     Int    @id @default(autoincrement())
+  title  String
+  userId Int    @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("email_verification_tokens")
 }
 
 model Topic {
@@ -69,7 +80,7 @@ model Question {
 model questionEvent {
   id           Int      @id @default(autoincrement())
   userId       Int
-  user         User     @relation(fields: [userId], references: [id])
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   questionId   Int
   question     Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
   topicId      Int
@@ -87,7 +98,7 @@ model ProfilePic {
   path     String
   filename String
   userId   Int    @unique
-  user     User   @relation(fields: [userId], references: [id])
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("profile_pics")
 }
