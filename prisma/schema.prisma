@@ -6,11 +6,11 @@
 
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+  previewFeatures = ["fullTextSearch"]
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -33,7 +33,7 @@ model User {
   createdAt              DateTime                @default(now())
   updatedAt              DateTime                @updatedAt
 
-  @@fulltext([name, email])
+  // @@fulltext([name, email])
   @@map("users")
 }
 
@@ -56,8 +56,8 @@ model emailVerificationToken {
 }
 
 model Topic {
-  id        Int        @id @default(autoincrement())
-  title     String
+  id        String     @id
+  title     String     @unique
   questions Question[]
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
@@ -67,8 +67,8 @@ model Topic {
 
 model Question {
   id        Int             @id @default(autoincrement())
-  title     String
-  topicId   Int
+  title     String          @unique
+  topicId   String
   topic     Topic           @relation(fields: [topicId], references: [id])
   users     questionEvent[]
   createdAt DateTime        @default(now())
@@ -83,13 +83,14 @@ model questionEvent {
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   questionId   Int
   question     Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
-  topicId      Int
+  topicId      String
   note         String
   isBookmarked Boolean  @default(false)
   isCompleted  Boolean  @default(false)
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
+  @@unique([userId, questionId, topicId])
   @@map("questions_events")
 }
 

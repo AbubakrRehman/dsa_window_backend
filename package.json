@@ -9,19 +9,24 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^5.18.0",
+    "@prisma/client": "^5.22.0",
     "@prisma/studio": "^0.502.0",
     "cors": "^2.8.5",
+    "csv-parser": "^3.2.0",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.14",
     "nodemon": "^3.1.4",
+    "strip-bom-stream": "^5.0.0",
     "uuid": "^10.0.0"
   },
   "description": "",
   "devDependencies": {
     "prisma": "^5.18.0"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
   }
 }

@@ -1,0 +1,161 @@
+topicId,title
+1,Kadane's Algorithm (Max Subarray Sum)
+1,Merge two sorted arrays
+1,Move zeroes to end
+1,"Sort 0s, 1s, 2s (Dutch National Flag)"
+1,Find duplicate number
+1,Missing number in array
+1,Best time to buy and sell stock
+1,Rotate array by K steps
+1,Next permutation
+1,Majority element (Boyer-Moore)
+1,Subarray sum equals K
+1,Maximum product subarray
+1,Longest consecutive sequence
+1,Two sum
+1,3Sum
+1,Trapping rain water
+1,Merge intervals
+1,Insert interval
+1,Set matrix zeroes
+1,Spiral matrix
+1,Pascal's triangle
+1,Jump game
+1,Gas station
+1,Candy distribution
+1,Minimum size subarray sum
+1,Rearrange array elements alternately
+1,Find equilibrium point
+1,Leaders in an array
+1,Maximum of all subarrays of size K
+1,Count inversions
+1,Maximum circular subarray
+1,Count subarrays with given sum
+1,Product of array except self
+1,Median of two sorted arrays
+1,Kth smallest/largest element
+1,Find common elements in 3 sorted arrays
+1,Longest subarray with sum 0
+1,Subarray with XOR = K
+1,Count number of subarrays with given XOR
+1,Maximum sum of non-adjacent elements
+1,Minimum operations to make array equal
+1,Find all duplicates in an array
+1,Maximum sum increasing subsequence
+1,Maximum length of even-odd subarray
+1,Longest mountain
+1,Number of subarrays with sum divisible by K
+1,Minimum swaps to bring K elements together
+1,Longest subarray of 1s after flipping K 0s
+1,Sort an array with 2 types of elements
+1,Minimum number of platforms required
+2,Reverse a string
+2,Valid palindrome
+2,Longest palindrome substring
+2,Longest common prefix
+2,Group anagrams
+2,Check anagram
+2,Count and say
+2,Implement strStr()
+2,Integer to Roman
+2,Roman to Integer
+2,String to integer (atoi)
+2,Longest substring without repeating characters
+2,Longest repeating character replacement
+2,Minimum window substring
+2,Decode ways
+2,Edit distance
+2,Zigzag conversion
+2,Multiply large numbers
+2,Valid parenthesis
+2,Remove duplicates
+2,Generate all permutations
+2,Rabin-Karp algorithm
+2,KMP algorithm
+2,Manacherâ€™s algorithm
+2,Longest palindromic subsequence
+2,Check if rotation of another string
+2,Count and print all subsequences
+2,Wildcard pattern matching
+2,Minimum characters to add to make palindrome
+2,Lexicographic rank of a string
+2,Find smallest window in a string containing all characters
+2,Recursively remove adjacent duplicates
+2,Number of times a string occurs as a subsequence
+2,Smallest substring of a string containing all characters of another string
+2,Print all anagrams together
+2,Convert string to valid parentheses
+2,Valid IP address
+2,Word break problem
+2,Longest prefix which is also suffix
+2,Repeated substring pattern
+3,Spiral traversal on a Matrix
+3,Search an element in a Matrix
+3,Find median in a row wise sorted matrix
+3,Find row with maximum number of 1's
+3,Print elements in sorted order using row-column wise sorted matrix
+3,Maximum size rectangle
+3,Find a specific pair in matrix
+3,Rotate matrix by 90 degrees
+3,Kth smallest element in a row-column wise sorted matrix
+3,Common elements in all rows of a given matrix
+4,Find first and last positions of an element in a sorted array
+4,Find a Fixed Point (value equal to index) in a given array
+4,Search in a rotated sorted array
+4,Square root of an integer
+4,Maximum and minimum of an array using minimum number of comparisons
+4,Optimum location of point to minimize total distance
+4,Find the repeating and the missing
+4,Majority Element
+4,Searching in an array where adjacent differ by at most k
+4,Find pivot element in a sorted rotated array
+4,K-th Element of Two Sorted Arrays
+4,Aggressive cows (binary search application)
+5,Reverse a Linked List
+5,Find the middle of a given linked list
+5,Detect loop in a linked list
+5,Remove loop in a linked list
+5,Remove duplicates from a sorted linked list
+5,Remove duplicates from an unsorted linked list
+5,Write a program to move the last element to the front in a linked list
+5,Add 1 to a number represented as linked list
+5,Add two numbers represented by linked lists
+5,Intersection point in Y shaped linked lists
+5,Merge Sort for Linked List
+5,Quotient of Linked Lists
+5,Flattening a Linked List
+5,Clone a linked list with next and random pointer
+5,LRU Cache Implementation
+5,Reverse a DLL
+5,Find pairs with given sum in DLL
+5,Delete nodes which have a greater value on right side
+5,Segregate even and odd nodes in a Linked List
+5,Delete N nodes after M nodes of a linked list
+5,Rotate a Linked List
+5,Block swap algorithm for linked list
+5,Multiply two numbers represented by Linked Lists
+6,Inorder Traversal of Binary Tree
+6,Preorder Traversal of Binary Tree
+6,Postorder Traversal of Binary Tree
+6,Level Order Traversal
+6,Height of Binary Tree
+6,Size of Binary Tree
+6,Maximum Path Sum
+6,Diameter of Binary Tree
+6,Check for Balanced Tree
+6,Find LCA in Binary Tree
+6,Mirror of Binary Tree
+6,Check if two trees are identical
+6,ZigZag Tree Traversal
+6,Boundary Traversal of binary tree
+6,Vertical order traversal
+6,Top View of Binary Tree
+6,Bottom View of Binary Tree
+6,Right View of Binary Tree
+6,Left View of Binary Tree
+6,Convert Binary tree to DLL
+6,Convert Binary Tree to Sum Tree
+6,Construct Binary Tree from Inorder and Preorder
+6,Tree from Inorder and Postorder
+6,Serialize and Deserialize a Binary Tree
+6,Check if Binary Tree is Sum Tree

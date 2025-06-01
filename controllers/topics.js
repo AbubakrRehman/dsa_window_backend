@@ -12,41 +12,37 @@ const prismaClient = new PrismaClient({
 
 
 const getAllUserTopics = async (req, res, next) => {
+    const userId = +req.user.id;
 
-    let topics = await prismaClient.topic.findMany({
+    // Fetch all topics with their questions and user status
+    const topics = await prismaClient.topic.findMany({
         include: {
-            _count: {
+            questions: {
                 include: {
-                    questions: true
+                    users: {
+                        where: { userId },
+                        select: { isCompleted: true }
+                    }
                 }
             }
         }
     });
 
+    // Post-process to calculate counts
+    const result = topics.map(topic => {
+        const totalQuestions = topic.questions.length;
+        const completedQuestions = topic.questions.filter(
+            q => q.users.some(u => u.isCompleted)
+        ).length;
 
-    let userTopics = await prismaClient.$queryRaw(Prisma.raw(`select COUNT(topicId) as count ,topicId from questions_events where userId = ${+req.user.id} and isCompleted = TRUE group by topicId`))
-    userTopics = json(userTopics);
-
-    userTopics = JSON.parse(userTopics);
-
-
-    let userTopicsMap = userTopics.reduce((acc, curr) => {
-
-        if (curr.topicId)
-            return { ...acc, [+curr.topicId]: +curr.count }
-        else
-            return { ...acc, [+curr.topicId]: 0 }
-    }, {})
-
-
-
-    resultant = topics.map((topic) => {
         return {
-            ...topic, completedCount: userTopicsMap[topic.id] || 0
-        }
-    })
-
-    res.json(resultant)
+            id: topic.id,
+            title: topic.title,
+            totalQuestions,
+            completedQuestions
+        };
+    });
+    return res.json(result)
 }
 
 const getAllTopics = async (req, res, next) => {
@@ -71,7 +67,7 @@ const getQuestionsByTopicId = async (req, res, next) => {
 
     questions = await prismaClient.question.findMany({
         where: {
-            topicId: +req.params.id
+            topicId: req.params.id
         }
     });
 
@@ -97,8 +93,11 @@ const getUserQuestionsByTopicId = async (req, res, next) => {
 
 const addTopic = async (req, res, next) => {
 
+    const id = crypto.randomUUID();
+
     let topic = await prismaClient.topic.create({
         data: {
+            id: id,
             title: req.body.title
         }
     });
@@ -112,7 +111,7 @@ const addQuestionToTopic = async (req, res, next) => {
     let question = await prismaClient.question.create({
         data: {
             title: req.body.title,
-            topicId: +req.params.id
+            topicId: req.params.id
         }
     });
 
@@ -122,13 +121,13 @@ const addQuestionToTopic = async (req, res, next) => {
 
 const deleteTopic = async (req, res, next) => {
 
-    if(req.user.role !== 'ADMIN'){
+    if (req.user.role !== 'ADMIN') {
         next(new UnauthorizedException("User not authorized", ErrorCode.UNAUTHARIZED))
     }
 
     let topic = await prismaClient.topic.delete({
         where: {
-            id: +req.params.id
+            id: req.params.id
         }
     });
 
@@ -136,7 +135,7 @@ const deleteTopic = async (req, res, next) => {
 }
 
 const deleteQuestion = async (req, res, next) => {
-    
+
     // logged in user has the role of admin or not
     //fetach details of users from database n check the role
     //if above sucessful then onlty perform below
@@ -145,7 +144,7 @@ const deleteQuestion = async (req, res, next) => {
         let question = await prismaClient.question.delete({
             where: {
                 id: +req.params.questionId,
-                topicId: +req.params.topicId
+                topicId: req.params.topicId
             }
         });
 
@@ -159,40 +158,31 @@ const deleteQuestion = async (req, res, next) => {
 
 const attemptQuestion = async (req, res, next) => {
 
-    let question;
-    question = await prismaClient.questionEvent.findFirst({
-        where: {
-            questionId: +req.params.questionId,
-            userId: +req.user.id,
-            topicId: +req.params.topicId
-        }
-    })
-
-
-    let payload = {
-        note: req.body.note ? req.body.note : '',
-        isBookmarked: req.body.isBookmarked,
-        isCompleted: req.body.isCompleted
-    }
-
-    if (!question) {
-        question = await prismaClient.questionEvent.create({
-            data: {
+    try {
+        await prismaClient.questionEvent.upsert({
+            where: {
+                userId_questionId_topicId: {
+                    questionId: +req.params.questionId,
+                    userId: +req.user.id,
+                    topicId: req.params.topicId
+                }
+            },
+            create: {
                 questionId: +req.params.questionId,
                 userId: +req.user.id,
-                topicId: +req.params.topicId,
-                note: payload.note,
-                isBookmarked: payload.isBookmarked,
-                isCompleted: payload.isCompleted
-            }
+                topicId: req.params.topicId,
+                note: req.body.note ? req.body.note : '',
+                isBookmarked: req.body.isBookmarked ? true : false,
+                isCompleted: req.body.isCompleted ? true : false
+            },
+            update: req.body
         });
 
-        return res.json(question);
-
-    } else {
-        question = { ...question, ...req.body };
-        const result = await prismaClient.$queryRaw(Prisma.sql`UPDATE questions_events SET note=${question.note}, isBookmarked=${question.isBookmarked}, isCompleted=${question.isCompleted} WHERE questionId = ${+req.params.questionId} AND userId=${+req.user.id} AND topicId=${+req.params.topicId}`);
-        return res.json(result);
+        return res.json({
+            message: "Question attempt updated successfully"
+        });
+    } catch (error) {
+        console.log("Error updating question attempt:", error);
     }
 }
 
@@ -202,64 +192,36 @@ const getUserQuestionsByTopicIdWithStatus = async (req, res, next) => {
     let { isBookmarked, isCompleted, search, sortBy } = req.query;
     let order = sortBy.substring(0, 1);
     sortBy = sortBy.substring(1,);
-    
-    //questionsList
-    let questions = await prismaClient.question.findMany({
+
+    const userId = +req.user.id;
+    const questionsWithAttemptStatus = await prismaClient.question.findMany({
         where: {
-            topicId: +req.params.id
+            topicId: req.params.id,
+        },
+        include: {
+            users: {
+                where: { userId },
+                select: {
+                    note: true,
+                    isCompleted: true,
+                    isBookmarked: true,
+                    updatedAt: true,
+                    createdAt: true
+                }
+            }
         }
-    })
-
-    //questionsMap
-    let questionsMap = questions.reduce((acc, curr) => {
-        return { ...acc, [+curr.id]: curr }
-    }, {})
-
-    //questionsId
-    let questionsId = questions.map((question) => question.id)
-
-    //questionsWithStatusList
-    let questionsWithStatus = await prismaClient.questionEvent.findMany({
-        where: {
-            topicId: +req.params.id,
-            userId: +req.user.id
-        }
-    })
-
-    //questionsWithStatusMap
-    let questionsWithStatusMap = questionsWithStatus.reduce((acc, curr) => {
-        return { ...acc, [+curr.questionId]: curr }
-    }, {})
-
-    //questionsWithStatusId
-    let questionsWithStatusId = questionsWithStatus.map((questionWithStatus) => questionWithStatus.questionId)
+    });
 
 
-    let result = [];
-
-    questionsId.forEach((questionId) => {
-        if (questionsWithStatusId.includes(questionId)) {
-            result.push({
-                id: questionId,
-                title: questionsMap[questionId].title.trim().toLowerCase(),
-                note: questionsWithStatusMap[questionId].note,
-                isBookmarked: questionsWithStatusMap[questionId].isBookmarked,
-                isCompleted: questionsWithStatusMap[questionId].isCompleted,
-                updatedAt: questionsWithStatusMap[questionId].updatedAt,
-                createdAt: questionsMap[questionId].createdAt
-            })
-        } else {
-            result.push({
-                id: questionId,
-                title: questionsMap[questionId].title.trim().toLowerCase(),
-                note: "",
-                isBookmarked: false,
-                isCompleted: false,
-                updatedAt: null,
-                createdAt: questionsMap[questionId].createdAt
-            })
-        }
-    })
+    let result = questionsWithAttemptStatus.map(q => ({
+        id: +q.id,
+        title: q.title,
+        note: q.users[0]?.note ?? "",
+        isCompleted: q.users[0]?.isCompleted ?? false,
+        isBookmarked: q.users[0]?.isBookmarked ?? false,
+        updatedAt: q.users[0]?.updatedAt ?? null,
+        createdAt: q.users[0]?.createdAt ?? null,
+    }));
 
     if (search && search != '') {
         result = result.filter((item) => item.title.trim().toLowerCase().includes(search.trim().toLowerCase()))
@@ -308,14 +270,14 @@ const getUserQuestionsByTopicIdWithStatus = async (req, res, next) => {
         }
     }
 
-    res.json(result)
+    return res.json(result)
 }
 
 const updateTopic = async (req, res, next) => {
 
     const topic = await prismaClient.topic.update({
         where: {
-            id: +req.params.id
+            id: req.params.id
         }, data: {
             title: req.body.title
         }
