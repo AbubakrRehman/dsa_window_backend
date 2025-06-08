@@ -1,0 +1,22 @@
+# Use the official Node.js LTS image as the base image
+FROM node:22
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
+
+# Install dependencies, including Prisma CLI
+RUN npm ci --only=production
+
+# Copy the rest of the application code to the working directory
+COPY . .
+
+# Run Prisma migrations and generate Prisma client
+# RUN npx prisma generate
+# RUN npx prisma migrate deploy
+
+
+# Define the command to run the application
+CMD ["sh", "-c", "npx prisma generate && npx prisma migrate deploy && npx prisma db seed && npm start"]
