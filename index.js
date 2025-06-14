@@ -23,10 +23,10 @@ app.use("/static", express.static(path.join(__dirname, 'public')));
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
-const origins = process.env.ALLOWED_ORIGINS.split(',');
+// const origins = process.env.ALLOWED_ORIGINS.split(',');
 // CORS options to allow requests from frontend running on port 5500
 const corsOptions = {
-    origin: [...origins], // Allow only requests from this origin
+    origin: "*", // Allow only requests from this origin
     methods: 'GET,POST, PUT, DELETE', // Allow only these methods
     allowedHeaders: ['Content-Type', 'Authorization'] // Allow only these headers
 };
@@ -55,4 +55,4 @@ app.get("*", (req, res, next) => {
 
 app.use(errorMiddleware);
 
-app.listen(process.env.BACKEND_PORT || 8090, () => console.log("connected !!!!"))
+app.listen(8090, () => console.log("connected !!!!"))
