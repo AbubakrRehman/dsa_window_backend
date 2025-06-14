@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    container_name: backend_app
+    image: backend:v1.0
     volumes:
       - .:/app
       - /app/node_modules
@@ -17,8 +17,7 @@ services:
       - postgres
 
   postgres:
-    image: postgres:17
-    container_name: postgres_db
+    image: postgres:17.4
     ports:
       - "5432:5432"
     env_file:

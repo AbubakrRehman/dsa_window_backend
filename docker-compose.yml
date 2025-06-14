@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: backend_app
+    image: backend:v1.0
     ports:
       - "8090:8090"
     env_file:
@@ -14,10 +14,7 @@ services:
       - postgres
 
   postgres:
-    image: postgres:17
-    container_name: postgres_db
-    ports:
-      - "5432:5432"
+    image: postgres:17.4
     env_file:
       - .env
     volumes:
@@ -25,7 +22,6 @@ services:
 
   caddy:
     image: caddy:latest
-    container_name: caddy_server
     ports:
       - "80:80"
       - "443:443"
