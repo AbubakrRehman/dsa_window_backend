@@ -13,11 +13,12 @@ const json = (param) => {
 };
 
 
-const sendMail = (to, subject, emailText, emailHTML) => {
+const sendMail = async (to, subject, emailText, emailHTML) => {
 
     let transporter = nodemailer.createTransport({
         host: 'live.smtp.mailtrap.io',
-        port: 587,
+        port: 2525,
+        secure: false, // true for 465, false for other ports
 
         auth: {
             user: 'api',
@@ -26,7 +27,7 @@ const sendMail = (to, subject, emailText, emailHTML) => {
         }
     });
 
-    return transporter.sendMail({
+    await transporter.sendMail({
         from: 'mailtrap@demomailtrap.com', // sender address
         to: to, // list of receivers
         subject: subject, // Subject line

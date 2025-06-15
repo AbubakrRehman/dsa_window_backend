@@ -44,7 +44,7 @@ const signup = async (req, res, next) => {
             }
         })
 
-        const link = `"http://localhost:8090/api/auth/verify-email/${emailVerificationToken}"`;
+        const link = `"${process.env.BACKEND_DOMAIN}/api/auth/verify-email/${emailVerificationToken}"`;
         const emailHTML = getEmailVerificationTemplate(link);
         try {
             await sendMail(email, "Email Verification Request", "", emailHTML);
@@ -91,7 +91,7 @@ const signup = async (req, res, next) => {
             }
         })
 
-        const link = `"http://localhost:8090/api/auth/verify-email/${emailVerificationToken}"`;
+        const link = `"${process.env.BACKEND_DOMAIN}/api/auth/verify-email/${emailVerificationToken}"`;
         const emailHTML = getEmailVerificationTemplate(link);
 
         await sendMail(email, "Email Verification Request", "", emailHTML);
@@ -134,7 +134,7 @@ const login = async (req, res, next) => {
             }
         })
 
-        const link = `"http://localhost:8090/api/auth/verify-email/${emailVerificationToken}"`;
+        const link = `"${process.env.BACKEND_DOMAIN}/api/auth/verify-email/${emailVerificationToken}"`;
         const emailHTML = getEmailVerificationTemplate(link);
         
         await sendMail(email, "Email Verification Request", "", emailHTML);
@@ -198,7 +198,7 @@ const emailPasswordResetLink = async (req, res, next) => {
             }
         })
 
-        const link = `"http://localhost:3000/reset-password/${token}"`;
+        const link = `"${process.env.FRONTEND_DOMAIN}/reset-password/${token}"`;
         const emailHTML = getPasswordResetEmailTemplate(link);
 
         try {
@@ -289,7 +289,7 @@ const verifyEmail = async (req, res, next) => {
         })
 
         if (user.isVerified) {
-            return res.render("email_verification_result", { emailVerified: true })
+            return res.render("email_verification_result", { emailVerified: true, frontendDomain: process.env.FRONTEND_DOMAIN })
         }
 
         const emailVerificationToken = await prismaClient.emailVerificationToken.findFirst({
@@ -299,7 +299,7 @@ const verifyEmail = async (req, res, next) => {
         })
 
         if (!emailVerificationToken) {
-            return res.render("email_verification_result", { emailVerified: false })
+            return res.render("email_verification_result", { emailVerified: false, frontendDomain: process.env.FRONTEND_DOMAIN })
         }
 
         await prismaClient.user.update({
@@ -316,9 +316,9 @@ const verifyEmail = async (req, res, next) => {
             }
         })
 
-        return res.render("email_verification_result", { emailVerified: true })
+        return res.render("email_verification_result", { emailVerified: true , frontendDomain: process.env.FRONTEND_DOMAIN})
     } catch (err) {
-        return res.render("email_verification_result", { emailVerified: false })
+        return res.render("email_verification_result", { emailVerified: false, frontendDomain: process.env.FRONTEND_DOMAIN })
     }
 }
 

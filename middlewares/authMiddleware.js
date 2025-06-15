@@ -27,7 +27,7 @@ const authMiddleware = async (req, res, next) => {
 
 
         if (user.profilePic) {
-            user.profilePic = `http://localhost:8090/api/files/${user.profilePic.id}`;
+            user.profilePic = `${process.env.BACKEND_PORT}/api/files/${user.profilePic.id}`;
         }
 
 
