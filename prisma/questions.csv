@@ -1,161 +1,338 @@
-topicId,title
-1,Kadane's Algorithm (Max Subarray Sum)
-1,Merge two sorted arrays
-1,Move zeroes to end
-1,"Sort 0s, 1s, 2s (Dutch National Flag)"
-1,Find duplicate number
-1,Missing number in array
-1,Best time to buy and sell stock
-1,Rotate array by K steps
-1,Next permutation
-1,Majority element (Boyer-Moore)
-1,Subarray sum equals K
-1,Maximum product subarray
-1,Longest consecutive sequence
-1,Two sum
-1,3Sum
-1,Trapping rain water
-1,Merge intervals
-1,Insert interval
-1,Set matrix zeroes
-1,Spiral matrix
-1,Pascal's triangle
-1,Jump game
-1,Gas station
-1,Candy distribution
-1,Minimum size subarray sum
-1,Rearrange array elements alternately
-1,Find equilibrium point
-1,Leaders in an array
-1,Maximum of all subarrays of size K
-1,Count inversions
-1,Maximum circular subarray
-1,Count subarrays with given sum
-1,Product of array except self
-1,Median of two sorted arrays
-1,Kth smallest/largest element
-1,Find common elements in 3 sorted arrays
-1,Longest subarray with sum 0
-1,Subarray with XOR = K
-1,Count number of subarrays with given XOR
-1,Maximum sum of non-adjacent elements
-1,Minimum operations to make array equal
-1,Find all duplicates in an array
-1,Maximum sum increasing subsequence
-1,Maximum length of even-odd subarray
-1,Longest mountain
-1,Number of subarrays with sum divisible by K
-1,Minimum swaps to bring K elements together
-1,Longest subarray of 1s after flipping K 0s
-1,Sort an array with 2 types of elements
-1,Minimum number of platforms required
-2,Reverse a string
-2,Valid palindrome
-2,Longest palindrome substring
-2,Longest common prefix
-2,Group anagrams
-2,Check anagram
-2,Count and say
-2,Implement strStr()
-2,Integer to Roman
-2,Roman to Integer
-2,String to integer (atoi)
-2,Longest substring without repeating characters
-2,Longest repeating character replacement
-2,Minimum window substring
-2,Decode ways
-2,Edit distance
-2,Zigzag conversion
-2,Multiply large numbers
-2,Valid parenthesis
-2,Remove duplicates
-2,Generate all permutations
-2,Rabin-Karp algorithm
-2,KMP algorithm
-2,Manacherâ€™s algorithm
-2,Longest palindromic subsequence
-2,Check if rotation of another string
-2,Count and print all subsequences
-2,Wildcard pattern matching
-2,Minimum characters to add to make palindrome
-2,Lexicographic rank of a string
-2,Find smallest window in a string containing all characters
-2,Recursively remove adjacent duplicates
-2,Number of times a string occurs as a subsequence
-2,Smallest substring of a string containing all characters of another string
-2,Print all anagrams together
-2,Convert string to valid parentheses
-2,Valid IP address
-2,Word break problem
-2,Longest prefix which is also suffix
-2,Repeated substring pattern
-3,Spiral traversal on a Matrix
-3,Search an element in a Matrix
-3,Find median in a row wise sorted matrix
-3,Find row with maximum number of 1's
-3,Print elements in sorted order using row-column wise sorted matrix
-3,Maximum size rectangle
-3,Find a specific pair in matrix
-3,Rotate matrix by 90 degrees
-3,Kth smallest element in a row-column wise sorted matrix
-3,Common elements in all rows of a given matrix
-4,Find first and last positions of an element in a sorted array
-4,Find a Fixed Point (value equal to index) in a given array
-4,Search in a rotated sorted array
-4,Square root of an integer
-4,Maximum and minimum of an array using minimum number of comparisons
-4,Optimum location of point to minimize total distance
-4,Find the repeating and the missing
-4,Majority Element
-4,Searching in an array where adjacent differ by at most k
-4,Find pivot element in a sorted rotated array
-4,K-th Element of Two Sorted Arrays
-4,Aggressive cows (binary search application)
-5,Reverse a Linked List
-5,Find the middle of a given linked list
-5,Detect loop in a linked list
-5,Remove loop in a linked list
-5,Remove duplicates from a sorted linked list
-5,Remove duplicates from an unsorted linked list
-5,Write a program to move the last element to the front in a linked list
-5,Add 1 to a number represented as linked list
-5,Add two numbers represented by linked lists
-5,Intersection point in Y shaped linked lists
-5,Merge Sort for Linked List
-5,Quotient of Linked Lists
-5,Flattening a Linked List
-5,Clone a linked list with next and random pointer
-5,LRU Cache Implementation
-5,Reverse a DLL
-5,Find pairs with given sum in DLL
-5,Delete nodes which have a greater value on right side
-5,Segregate even and odd nodes in a Linked List
-5,Delete N nodes after M nodes of a linked list
-5,Rotate a Linked List
-5,Block swap algorithm for linked list
-5,Multiply two numbers represented by Linked Lists
-6,Inorder Traversal of Binary Tree
-6,Preorder Traversal of Binary Tree
-6,Postorder Traversal of Binary Tree
-6,Level Order Traversal
-6,Height of Binary Tree
-6,Size of Binary Tree
-6,Maximum Path Sum
-6,Diameter of Binary Tree
-6,Check for Balanced Tree
-6,Find LCA in Binary Tree
-6,Mirror of Binary Tree
-6,Check if two trees are identical
-6,ZigZag Tree Traversal
-6,Boundary Traversal of binary tree
-6,Vertical order traversal
-6,Top View of Binary Tree
-6,Bottom View of Binary Tree
-6,Right View of Binary Tree
-6,Left View of Binary Tree
-6,Convert Binary tree to DLL
-6,Convert Binary Tree to Sum Tree
-6,Construct Binary Tree from Inorder and Preorder
-6,Tree from Inorder and Postorder
-6,Serialize and Deserialize a Binary Tree
-6,Check if Binary Tree is Sum Tree
+topicId,title,link,
+1,Reverse the array,https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/,
+1,Find the maximum and minimum element in an array,https://www.geeksforgeeks.org/maximum-and-minimum-in-an-array/,
+1,"Find the Kth max and min element of an array",https://www.geeksforgeeks.org/kth-largest-smallest-element-unsorted-array/,
+1,Sort an array of 0s,https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/,
+1,Move all negative elements to one side of the array,https://www.geeksforgeeks.org/move-negative-numbers-beginning-positive-end-constant-extra-space/,
+1,Find the union and intersection of two sorted arrays,https://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays/,
+1,Cyclically rotate an array by one,https://www.geeksforgeeks.org/c-program-for-array-rotation-rotation-of-array-p-elements/,
+1,Find largest sum contiguous subarray (Kadane’s Algorithm),https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/,
+1,Minimise the maximum difference between heights,https://www.geeksforgeeks.org/minimize-the-maximum-difference-between-heights/,
+1,Minimum number of jumps to reach end of an array,https://www.geeksforgeeks.org/minimum-number-of-jumps-to-reach-end-of-a-given-array/,
+1,Find duplicate in an array of N+1 integers,https://www.geeksforgeeks.org/find-duplicate-in-on2-time-using-constant-extra-space/,
+1,Merge 2 sorted arrays without extra space,https://www.geeksforgeeks.org/merge-two-sorted-arrays-o1-extra-space/,
+1,Kadane's Algorithm,https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/,
+1,Merge intervals,https://www.geeksforgeeks.org/merging-intervals/,
+1,Find next permutation,https://www.geeksforgeeks.org/next_permutation-function-in-c-stl/,
+1,Count inversions in an array,https://www.geeksforgeeks.org/counting-inversions/,
+1,Best time to buy and sell stock,https://www.geeksforgeeks.org/best-time-to-buy-and-sell-stock/,
+1,Find all pairs in array with given sum,https://www.geeksforgeeks.org/find-a-pair-with-given-sum-in-an-array/,
+1,Find common elements in 3 sorted arrays,https://www.geeksforgeeks.org/find-common-elements-in-three-sorted-arrays/,
+1,Rearrange array in alternating positive & negative items,https://www.geeksforgeeks.org/rearrange-positive-and-negative-numbers-predicate/,
+1,Check if any subarray sum equals zero,https://www.geeksforgeeks.org/find-if-there-is-a-subarray-with-0-sum/,
+1,Find factorial of a large number,https://www.geeksforgeeks.org/factorial-large-number/,
+1,Find maximum product subarray,https://www.geeksforgeeks.org/maximum-product-subarray/,
+1,Find longest consecutive subsequence,https://www.geeksforgeeks.org/longest-consecutive-subsequence/,
+1,Find elements appearing more than n/k times,https://www.geeksforgeeks.org/find-all-elements-that-appear-more-than-n-k-times/,
+1,Maximum profit by buying and selling stock at most twice,https://www.geeksforgeeks.org/maximum-profit-by-buying-and-selling-a-share-at-most-twice/,
+1,Check if one array is subset of another,https://www.geeksforgeeks.org/check-whether-an-array-is-subset-of-another-array-set-1/,
+1,Find triplet with given sum,https://www.geeksforgeeks.org/find-a-triplet-that-sum-to-a-given-value/,
+1,Trapping rain water problem,https://www.geeksforgeeks.org/trapping-rain-water/,
+1,Chocolate distribution problem,https://www.geeksforgeeks.org/chocolate-distribution-problem/,
+1,Smallest subarray with sum greater than a given value,https://www.geeksforgeeks.org/find-smallest-subarray-with-sum-greater-than-x/,
+1,Three-way partitioning of an array around a given value,https://www.geeksforgeeks.org/three-way-partitioning-of-an-array-around-a-given-value/,
+1,Minimum swaps to bring elements ≤ k together,https://www.geeksforgeeks.org/minimum-swaps-required-bring-elements-less-equal-k-together/,
+1,Minimum operations to make array palindrome,https://www.geeksforgeeks.org/minimum-number-of-operations-required-to-make-a-string-palindrome/,
+1,Median of two sorted arrays of equal size,https://www.geeksforgeeks.org/median-of-two-sorted-arrays-of-the-same-size/,
+1,Median of two sorted arrays of different sizes,https://www.geeksforgeeks.org/median-of-two-sorted-arrays-of-different-sizes/,
+2,Reverse a String,https://www.geeksforgeeks.org/write-a-program-to-reverse-a-string/,
+2,Check whether a String is Palindrome or not,https://www.geeksforgeeks.org/check-if-a-string-is-palindrome/,
+2,Find Duplicate characters in a string,https://www.geeksforgeeks.org/print-all-the-duplicates-in-the-input-string/,
+2,Write a Code to check whether one string is a rotation of another,https://www.geeksforgeeks.org/check-if-one-string-is-rotation-of-another-string/,
+2,Write a Program to check whether a string is a valid shuffle of two strings or not,https://www.geeksforgeeks.org/check-if-a-string-is-shuffle-of-two-strings/,
+2,Count and Say problem,https://leetcode.com/problems/count-and-say/,
+2,Find the longest Palindrome in a string (Longest palindromic Substring),https://leetcode.com/problems/longest-palindromic-substring/,
+2,Find Longest Repeating Subsequence in a String,https://www.geeksforgeeks.org/longest-repeating-subsequence/,
+2,Print all Subsequences of a string,https://www.geeksforgeeks.org/print-subsequences-string/,
+2,Print all permutations of a string,https://www.geeksforgeeks.org/generate-all-permutations-of-a-string-iterative/,
+2,Split the Binary string into two substrings with equal 0’s and 1’s,https://www.geeksforgeeks.org/split-a-binary-string-balanced-substrings/,
+2,Word Wrap Problem,https://www.geeksforgeeks.org/word-wrap-problem-dp-19/,
+2,Edit Distance,https://www.geeksforgeeks.org/edit-distance-dp-5/,
+2,Find next greater number with same set of digits,https://www.geeksforgeeks.org/find-next-greater-number-set-digits/,
+2,Balanced Parenthesis problem,https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/,
+2,Word Break Problem,https://www.geeksforgeeks.org/word-break-problem-dp-32/,
+2,Rabin-Karp Algorithm,https://www.geeksforgeeks.org/rabin-karp-algorithm-for-pattern-searching/,
+2,KMP Algorithm,https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/,
+2,Convert a Sentence into its mobile numeric keypad sequence,https://www.geeksforgeeks.org/mobile-keypad-typing-java/,
+2,Minimum number of bracket reversals to balance expression,https://www.geeksforgeeks.org/minimum-number-of-bracket-reversals-needed-to-make-an-expression-balanced/,
+2,Count All Palindromic Subsequences in a string,https://www.geeksforgeeks.org/count-palindromic-subsequence-given-string/,
+2,Count occurrences of a given string in 2D character array,https://www.geeksforgeeks.org/find-and-count-occurrences-of-a-word-in-a-2d-grid/,
+2,Search a Word in a 2D Grid of characters,https://www.geeksforgeeks.org/search-a-word-in-a-2d-grid-of-characters/,
+2,Boyer-Moore Algorithm for pattern searching,https://www.geeksforgeeks.org/boyer-moore-algorithm-for-pattern-searching/,
+2,Convert Roman Numerals to Decimal,https://www.geeksforgeeks.org/program-to-convert-roman-numerals-to-decimal-java/,
+2,Longest Common Prefix,https://www.geeksforgeeks.org/longest-common-prefix-set-1/,
+2,Number of flips to make binary string alternate,https://www.geeksforgeeks.org/minimum-number-of-flips-to-make-binary-string-alternate/,
+2,Find the first repeated word in a string,https://www.geeksforgeeks.org/find-first-repeated-word-in-a-string/,
+2,Minimum number of swaps for bracket balancing,https://www.geeksforgeeks.org/minimum-number-swaps-bracket-balancing/,
+2,Find the longest common subsequence between two strings,https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/,
+2,Generate all valid IP addresses from string,https://www.geeksforgeeks.org/program-to-generate-all-possible-valid-ip-addresses-from-given-string/,
+2,Find smallest window containing all characters of string itself,https://www.geeksforgeeks.org/smallest-window-in-a-string-containing-all-characters-of-another-string/,
+2,Rearrange characters so no two adjacent are same,https://www.geeksforgeeks.org/rearrange-characters-string-no-two-adjacent/,
+2,Minimum characters added at front to make palindrome,https://www.geeksforgeeks.org/minimum-characters-added-front-make-string-palindrome/,
+2,Print all anagrams together (group anagrams),https://www.geeksforgeeks.org/given-a-sequence-of-words-print-all-anagrams-together/,
+2,Recursively remove all adjacent duplicates,https://www.geeksforgeeks.org/remove-adjacent-duplicates-given-string/,
+2,String matching with wildcard characters,https://www.geeksforgeeks.org/wildcard-character-matching/,
+2,Transform One String to Another with minimum operations,https://www.geeksforgeeks.org/transform-one-string-to-another-using-minimum-number-of-given-operation/,
+2,Check if two given strings are isomorphic,https://www.geeksforgeeks.org/check-if-two-strings-are-isomorphic/,
+2,Recursively print all sentences from list of word lists (word permutations),https://www.geeksforgeeks.org/find-possible-word-sentence-formed-from-dict/,
+3,Find transpose of a matrix,https://www.geeksforgeeks.org/transpose-of-a-matrix/,
+3,Find the row with maximum number of 1s,https://www.geeksforgeeks.org/find-the-row-with-maximum-number-1s/,
+3,Find the median in a row-wise sorted matrix,https://www.geeksforgeeks.org/find-median-row-wise-sorted-matrix/,
+3,Find the kth smallest element in a row and column wise sorted matrix,https://www.geeksforgeeks.org/kth-smallest-element-in-a-row-wise-and-column-wise-sorted-matrix/,
+3,Rotate matrix by 90 degrees,https://www.geeksforgeeks.org/rotate-matrix-by-90-degree/,
+3,Find whether a path exists from source to destination in matrix,https://www.geeksforgeeks.org/find-whether-path-two-cells-matrix/,
+3,Find number of islands,https://www.geeksforgeeks.org/find-number-of-islands/,
+3,Find the longest path in a matrix with constraints,https://www.geeksforgeeks.org/find-longest-path-matrix-constraints/,
+3,Find the maximum size square sub-matrix with all 1s,https://www.geeksforgeeks.org/maximum-size-sub-matrix-with-all-1s/,
+3,Find number of distinct islands,https://www.geeksforgeeks.org/number-distinct-islands/,
+3,Print elements of matrix in spiral order,https://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/,
+3,Print elements of matrix in diagonal order,https://www.geeksforgeeks.org/print-matrix-diagonally/,
+3,Print elements of matrix in zigzag order,https://www.geeksforgeeks.org/print-matrix-in-zig-zag-fashion/,
+3,Search in a sorted 2D matrix,https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/,
+3,Search a target in matrix where rows and columns are sorted,https://leetcode.com/problems/search-a-2d-matrix-ii/,
+3,Find maximum sum sub-matrix,https://www.geeksforgeeks.org/maximum-sum-rectangle-in-a-2d-matrix-dp-27/,
+3,Rotate matrix by 180 degrees,https://www.geeksforgeeks.org/rotate-matrix-by-180-degree/,
+3,Find a specific pattern in matrix,https://www.geeksforgeeks.org/pattern-searching-2d-array/,
+3,Find whether a sequence exists in matrix,https://www.geeksforgeeks.org/find-whether-sequence-exists-matrix/,
+3,Find all possible paths from top-left to bottom-right of matrix,https://www.geeksforgeeks.org/print-all-possible-paths-from-top-left-to-bottom-right-of-a-matrix/,
+3,Print boundary elements of matrix,https://www.geeksforgeeks.org/print-boundary-elements-matrix/,
+3,Print elements in snake pattern,https://www.geeksforgeeks.org/print-elements-matrix-snake-pattern/,
+3,Find number of sub-matrices with sum zero,https://www.geeksforgeeks.org/number-submatrices-sum-zero/,
+3,Set matrix zeroes (if element is zero set entire row and column to zero),https://leetcode.com/problems/set-matrix-zeroes/,
+3,Find largest rectangle of 1s in a binary matrix,https://www.geeksforgeeks.org/maximum-size-rectangle-binary-sub-matrix-1s/,
+3,Check if matrix is Toeplitz matrix,https://leetcode.com/problems/toeplitz-matrix/,
+3,Find saddle point in matrix,https://www.geeksforgeeks.org/find-the-saddle-point-in-a-matrix/,
+3,Find common elements in all rows of a matrix,https://www.geeksforgeeks.org/find-common-elements-in-all-rows-of-a-given-matrix/,
+3,Find maximum size rectangle binary sub-matrix with all 1s,https://www.geeksforgeeks.org/maximum-size-rectangle-binary-sub-matrix-1s/,
+3,Find shortest distance from a source to destination in a matrix with obstacles,https://www.geeksforgeeks.org/shortest-distance-from-a-source-to-a-destination-in-a-binary-maze/,
+4,Implement Binary Search,https://www.geeksforgeeks.org/binary-search/,
+4,Find First and Last Position of Element in Sorted Array,https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/,
+4,Find Peak Element,https://leetcode.com/problems/find-peak-element/,
+4,Median of Two Sorted Arrays,https://leetcode.com/problems/median-of-two-sorted-arrays/,
+4,Kth Smallest Element in an Unsorted Array,https://leetcode.com/problems/kth-largest-element-in-an-array/,
+4,Search in Rotated Sorted Array,https://leetcode.com/problems/search-in-rotated-sorted-array/,
+4,Search in Rotated Sorted Array II,https://leetcode.com/problems/search-in-rotated-sorted-array-ii/,
+4,Count Inversions in an Array,https://www.geeksforgeeks.org/counting-inversions/,
+4,Merge Two Sorted Arrays without Extra Space,https://www.geeksforgeeks.org/merge-two-sorted-arrays-o1-extra-space/,
+4,Sort an Array of 0s  1s and 2s,https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/,
+4,QuickSort,https://www.geeksforgeeks.org/quick-sort/,
+4,MergeSort,https://www.geeksforgeeks.org/merge-sort/,
+4,HeapSort,https://www.geeksforgeeks.org/heap-sort/,
+4,Count Triplets with Sum Smaller than a Given Value,https://www.geeksforgeeks.org/count-triplets-with-sum-smaller-than-a-given-value/,
+4,Kth Largest Element in an Array,https://leetcode.com/problems/kth-largest-element-in-an-array/,
+4,Find the Missing Number,https://www.geeksforgeeks.org/find-the-missing-number/,
+4,Find the Duplicate Number on a Read Only Array,https://leetcode.com/problems/find-the-duplicate-number/,
+4,Minimum Number of Swaps Required to Sort an Array,https://www.geeksforgeeks.org/minimum-number-swaps-required-sort-array/,
+4,Find Pair with Given Sum in an Array,https://www.geeksforgeeks.org/find-a-pair-with-given-sum-in-array/,
+4,Sort the Array according to the Frequency of Elements,https://www.geeksforgeeks.org/sort-elements-by-frequency/,
+4,Wave Array,https://www.geeksforgeeks.org/wave-array/,
+4,Find the Kth Smallest Element in a BST,https://leetcode.com/problems/kth-smallest-element-in-a-bst/,
+4,Find All Triplets with Zero Sum,https://www.geeksforgeeks.org/find-triplets-array-whose-sum-equal-zero/,
+4,Find the Maximum Product Subarray,https://leetcode.com/problems/maximum-product-subarray/,
+4,Sort an Array of 0s  1s and 2s without using sorting algorithm,https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/,
+4,Find the Element that Appears Once,https://www.geeksforgeeks.org/find-the-element-that-appears-once/,
+5,Implement Linked List,https://www.geeksforgeeks.org/data-structures/linked-list/,
+5,Detect Loop in a Linked List,https://www.geeksforgeeks.org/detect-loop-in-a-linked-list/,
+5,Remove Loop in Linked List,https://www.geeksforgeeks.org/detect-and-remove-loop-in-a-linked-list/,
+5,Find Length of a Linked List,https://www.geeksforgeeks.org/length-of-a-linked-list/,
+5,Find Intersection Point of Two Linked Lists,https://www.geeksforgeeks.org/write-a-function-to-get-the-intersection-point-of-two-linked-lists/,
+5,Reverse a Linked List,https://www.geeksforgeeks.org/reverse-a-linked-list/,
+5,Detect and Remove Loop,https://www.geeksforgeeks.org/detect-and-remove-loop-in-a-linked-list/,
+5,Delete a Node in a Linked List,https://www.geeksforgeeks.org/delete-a-linked-list-node-at-a-given-position/,
+5,Flatten a Multilevel Doubly Linked List,https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/,
+5,Add Two Numbers Represented by Linked Lists,https://leetcode.com/problems/add-two-numbers/,
+5,Clone a Linked List with Next and Random Pointer,https://www.geeksforgeeks.org/a-linked-list-with-next-and-arbit-pointer/,
+5,Merge Two Sorted Linked Lists,https://leetcode.com/problems/merge-two-sorted-lists/,
+5,Intersection Point in Y Shapped Linked Lists,https://practice.geeksforgeeks.org/problems/intersection-point-in-y-shapped-linked-lists/1,
+5,Remove Duplicates from Sorted Linked List,https://leetcode.com/problems/remove-duplicates-from-sorted-list/,
+5,Rotate a Linked List,https://www.geeksforgeeks.org/rotate-linked-list/,
+5,Delete Node without Head Pointer,https://www.geeksforgeeks.org/delete-node-without-head-pointer/,
+5,Reverse Linked List in groups of given size,https://www.geeksforgeeks.org/reverse-a-linked-list-in-groups-of-given-size/,
+5,Add One to a Number Represented as Linked List,https://practice.geeksforgeeks.org/problems/add-1-to-a-number-represented-as-linked-list/1,
+5,Find the Starting Point of the Loop,https://www.geeksforgeeks.org/find-first-node-of-loop-in-linked-list/,
+5,Check if Linked List is Palindrome,https://leetcode.com/problems/palindrome-linked-list/,
+5,Remove Nth Node from End of List,https://leetcode.com/problems/remove-nth-node-from-end-of-list/,
+6,Implement Binary Tree,https://www.geeksforgeeks.org/binary-tree-data-structure/,
+6,Find Height of Binary Tree,https://www.geeksforgeeks.org/write-a-c-program-to-find-the-maximum-depth-or-height-of-a-tree/,
+6,Level Order Traversal,https://www.geeksforgeeks.org/level-order-tree-traversal/,
+6,Inorder Traversal,https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/,
+6,Preorder Traversal,https://www.geeksforgeeks.org/preorder-tree-traversal-without-recursion/,
+6,Postorder Traversal,https://www.geeksforgeeks.org/postorder-tree-traversal-without-recursion/,
+6,Check if Binary Tree is Balanced,https://leetcode.com/problems/balanced-binary-tree/,
+6,Find Diameter of Binary Tree,https://leetcode.com/problems/diameter-of-binary-tree/,
+6,Lowest Common Ancestor in a Binary Tree,https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/,
+6,Serialize and Deserialize Binary Tree,https://leetcode.com/problems/serialize-and-deserialize-binary-tree/,
+6,Convert Binary Tree to Doubly Linked List,https://www.geeksforgeeks.org/convert-given-binary-tree-doubly-linked-list-set-3/,
+6,Sum of Nodes on Longest Path from Root to Leaf,https://practice.geeksforgeeks.org/problems/sum-of-nodes-on-the-longest-path-from-root-to-leaf/1,
+6,Count Number of Leaf Nodes,https://www.geeksforgeeks.org/count-leaf-nodes-in-a-binary-tree/,
+6,Check if Two Trees are Identical,https://leetcode.com/problems/same-tree/,
+6,Find Maximum Path Sum,https://leetcode.com/problems/binary-tree-maximum-path-sum/,
+6,Construct Binary Tree from Inorder and Preorder,https://www.geeksforgeeks.org/construct-tree-from-given-inorder-and-preorder-traversal/,
+6,Construct Binary Tree from Inorder and Postorder,https://www.geeksforgeeks.org/construct-tree-from-inorder-and-postorder-traversal/,
+6,Find Subtree with Maximum Sum,https://practice.geeksforgeeks.org/problems/maximum-sum-subtree/1,
+6,Check if Tree is Symmetric,https://leetcode.com/problems/symmetric-tree/,
+6,Find Kth Smallest Element in BST,https://leetcode.com/problems/kth-smallest-element-in-a-bst/,
+7,Implement BST,https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/,
+7,Search in a BST,https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/,
+7,Find Minimum and Maximum in BST,https://www.geeksforgeeks.org/find-minimum-and-maximum-in-binary-search-tree/,
+7,Find Inorder Successor in BST,https://www.geeksforgeeks.org/inorder-successor-in-binary-search-tree/,
+7,Find Inorder Predecessor in BST,https://www.geeksforgeeks.org/inorder-predecessor-in-binary-search-tree/,
+7,Delete a Node in BST,https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/,
+7,Check if a Binary Tree is BST,https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/,
+7,Convert Sorted Array to Balanced BST,https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/,
+7,Convert BST to Balanced BST,https://www.geeksforgeeks.org/balance-a-binary-search-tree/,
+7,Find LCA in BST,https://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/,
+7,Find Kth Smallest Element in BST,https://leetcode.com/problems/kth-smallest-element-in-a-bst/,
+7,Find Kth Largest Element in BST,https://www.geeksforgeeks.org/kth-largest-element-in-bst/,
+7,Count Nodes in BST in a Given Range,https://www.geeksforgeeks.org/count-bst-nodes-in-a-given-range/,
+7,Merge Two BSTs,https://www.geeksforgeeks.org/merge-two-bsts-with-limited-extra-space/,
+7,Find Floor and Ceil in BST,https://www.geeksforgeeks.org/find-the-floor-and-ceil-in-bst/,
+7,Inorder Traversal of BST,https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/,
+7,Preorder Traversal of BST,https://www.geeksforgeeks.org/preorder-tree-traversal-without-recursion/,
+7,Postorder Traversal of BST,https://www.geeksforgeeks.org/postorder-tree-traversal-without-recursion/,
+7,Find the Closest Value to a Target in BST,https://leetcode.com/problems/closest-binary-search-tree-value/,
+7,Construct BST from Preorder Traversal,https://www.geeksforgeeks.org/construct-bst-from-given-preorder-traversa/,
+8,Activity Selection Problem,https://www.geeksforgeeks.org/activity-selection-problem-greedy-algo-1/,
+8,Job Sequencing Problem,https://www.geeksforgeeks.org/job-sequencing-problem/,
+8,Huffman Coding,https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/,
+8,Minimum Number of Platforms Required for a Railway/Bus Station,https://www.geeksforgeeks.org/minimum-number-platforms-required-railwaybus-station/,
+8,Buy Maximum Stocks if i stocks can be bought on i-th day,https://www.geeksforgeeks.org/buy-maximum-stocks-i-th-day/,
+8,Find Minimum Number of Coins,https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/,
+8,Minimum Cash Flow among a given set of friends who have borrowed money from each other,https://www.geeksforgeeks.org/minimum-cash-flow-among-given-set-friends-borrowed-money/,
+8,Check whether it is possible to survive on Island,https://www.geeksforgeeks.org/survival/,
+8,Minimum Cost of ropes,https://www.geeksforgeeks.org/connect-n-ropes-minimum-cost/,
+8,Minimum number of operations to make an array palindrome,https://www.geeksforgeeks.org/minimum-number-of-merge-operations-to-make-an-array-palindrome/,
+8,Minimum Swaps for Bracket Balancing,https://www.geeksforgeeks.org/minimum-number-swaps-bracket-balancing/,
+8,Largest number possible after K swaps,https://www.geeksforgeeks.org/find-maximum-number-possible-by-doing-at-most-k-swaps/,
+8,Choose and Swap,https://practice.geeksforgeeks.org/problems/choose-and-swap/1,
+8,Maximize sum after K negations,https://leetcode.com/problems/maximize-sum-of-array-after-k-negations/,
+8,Maximize the number of toys that can be bought with a given amount,https://practice.geeksforgeeks.org/problems/maximize-toys/0,
+8,Minimum sum of absolute differences of pairs of two arrays,https://www.geeksforgeeks.org/minimize-sum-of-absolute-differences-of-pairs-of-two-arrays/,
+8,Assign Mice to Holes,https://www.geeksforgeeks.org/assign-mice-holes/,
+9,Subsets,https://leetcode.com/problems/subsets/,
+9,Subsets II (contains duplicates),https://leetcode.com/problems/subsets-ii/,
+9,Permutations,https://leetcode.com/problems/permutations/,
+9,Permutations II (contains duplicates),https://leetcode.com/problems/permutations-ii/,
+9,Combination Sum,https://leetcode.com/problems/combination-sum/,
+9,Combination Sum II,https://leetcode.com/problems/combination-sum-ii/,
+9,N-Queens Problem,https://leetcode.com/problems/n-queens/,
+9,Sudoku Solver,https://leetcode.com/problems/sudoku-solver/,
+9,Word Search,https://leetcode.com/problems/word-search/,
+9,Rat in a Maze,https://www.geeksforgeeks.org/rat-in-a-maze-backtracking-2/,
+9,Print all possible paths from top left to bottom right of a mXn matrix,https://www.geeksforgeeks.org/print-all-possible-paths-from-top-left-to-bottom-right-of-a-mxn-matrix/,
+9,Palindrome Partitioning,https://leetcode.com/problems/palindrome-partitioning/,
+9,Subset Sum Problem,https://www.geeksforgeeks.org/subset-sum-problem-dp-25/,
+9,M-coloring Problem,https://www.geeksforgeeks.org/m-coloring-problem-backtracking-5/,
+9,Generate all Binary Strings without consecutive 1s,https://www.geeksforgeeks.org/generate-binary-strings-without-consecutive-1s/,
+9,Matchsticks to Square,https://leetcode.com/problems/matchsticks-to-square/,
+10,Implement Stack using Array,https://www.geeksforgeeks.org/stack-data-structure/,
+10,Implement Stack using Linked List,https://www.geeksforgeeks.org/implement-a-stack-using-singly-linked-list/,
+10,Implement Queue using Array,https://www.geeksforgeeks.org/queue-set-1introduction-and-array-implementation/,
+10,Implement Queue using Linked List,https://www.geeksforgeeks.org/queue-linked-list-implementation/,
+10,Implement Circular Queue,https://www.geeksforgeeks.org/circular-queue-set-1-introduction-array-implementation/,
+10,Implement Deque,https://www.geeksforgeeks.org/deque-set-1-introduction-applications/,
+10,Implement a Stack using two Queues,https://www.geeksforgeeks.org/implement-stack-using-queue/,
+10,Implement a Queue using two Stacks,https://www.geeksforgeeks.org/implement-queue-using-stacks/,
+10,LRU Cache Implementation,https://leetcode.com/problems/lru-cache/,
+10,Reverse a Stack using Recursion,https://www.geeksforgeeks.org/reverse-a-stack-using-recursion/,
+10,Sort a Stack using Recursion,https://www.geeksforgeeks.org/sort-a-stack-using-recursion/,
+10,Next Greater Element,https://leetcode.com/problems/next-greater-element-i/,
+10,The Celebrity Problem,https://www.geeksforgeeks.org/the-celebrity-problem/,
+10,Minimum Add to Make Parentheses Valid,https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/,
+10,Valid Parentheses,https://leetcode.com/problems/valid-parentheses/,
+10,Largest Rectangle in Histogram,https://leetcode.com/problems/largest-rectangle-in-histogram/,
+10,Sliding Window Maximum,https://leetcode.com/problems/sliding-window-maximum/,
+10,Implement Min Stack,https://leetcode.com/problems/min-stack/,
+10,Rotten Oranges,https://www.geeksforgeeks.org/rotten-oranges/,
+10,Stock Span Problem,https://www.geeksforgeeks.org/the-stock-span-problem/,
+10,Design a Stack that supports getMin() in O(1) time and O(1) extra space,https://www.geeksforgeeks.org/design-and-implement-special-stack-data-structure/,
+11,Implement a Max Heap / Min Heap using arrays,https://www.geeksforgeeks.org/binary-heap/,
+11,Sort a nearly sorted (k sorted) array,https://www.geeksforgeeks.org/nearly-sorted-algorithm/,
+11,Kth Largest Element in an Array,https://leetcode.com/problems/kth-largest-element-in-an-array/,
+11,K Closest Points to Origin,https://leetcode.com/problems/k-closest-points-to-origin/,
+11,Connect n ropes with minimum cost,https://www.geeksforgeeks.org/connect-n-ropes-minimum-cost/,
+11,Convert BST to Min Heap,https://www.geeksforgeeks.org/convert-bst-min-heap/,
+11,Merge k Sorted Arrays,https://www.geeksforgeeks.org/merge-k-sorted-arrays/,
+11,Merge K Sorted Linked Lists,https://leetcode.com/problems/merge-k-sorted-lists/,
+11,Top K Frequent Elements,https://leetcode.com/problems/top-k-frequent-elements/,
+11,Find Median from Data Stream,https://leetcode.com/problems/find-median-from-data-stream/,
+11,Reorganize String,https://leetcode.com/problems/reorganize-string/,
+11,Smallest Range Covering Elements from K Lists,https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/,
+11,Maximum Sum Combination,https://www.geeksforgeeks.org/maximum-sum-two-arrays-picking-elements-one/,
+12,Create a Graph using Adjacency List and Matrix,https://www.geeksforgeeks.org/graph-and-its-representations/,
+12,BFS of a graph,https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/,
+12,DFS of a graph,https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/,
+12,Detect Cycle in an Undirected Graph,https://www.geeksforgeeks.org/detect-cycle-undirected-graph/,
+12,Detect Cycle in a Directed Graph,https://www.geeksforgeeks.org/detect-cycle-in-a-graph/,
+12,Topological Sort,https://www.geeksforgeeks.org/topological-sorting/,
+12,Shortest Path in Undirected Graph (unit weights),https://www.geeksforgeeks.org/shortest-path-unweighted-graph/,
+12,Dijkstra's Algorithm,https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/,
+12,Bellman-Ford Algorithm,https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/,
+12,Floyd Warshall Algorithm,https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/,
+12,Minimum Spanning Tree (Prim’s Algorithm),https://www.geeksforgeeks.org/prims-minimum-spanning-tree-greedy-algo-5/,
+12,Minimum Spanning Tree (Kruskal’s Algorithm),https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/,
+12,Find if a path exists between two nodes,https://www.geeksforgeeks.org/check-path-exists-between-two-given-vertices/,
+12,Number of Islands (Graph Version),https://leetcode.com/problems/number-of-islands/,
+12,Clone a Graph,https://leetcode.com/problems/clone-graph/,
+12,Find Eventual Safe States,https://leetcode.com/problems/find-eventual-safe-states/,
+12,Find Mother Vertex,https://www.geeksforgeeks.org/find-a-mother-vertex-in-a-graph/,
+12,Articulation Points (or Cut Vertices) in a Graph,https://www.geeksforgeeks.org/articulation-points-or-cut-vertices-in-a-graph/,
+12,Bridge Edge in a Graph,https://www.geeksforgeeks.org/bridge-in-a-graph/,
+12,Kosaraju’s Algorithm for Strongly Connected Components,https://www.geeksforgeeks.org/strongly-connected-components/,
+12,Check if a Graph is Bipartite,https://www.geeksforgeeks.org/bipartite-graph/,
+12,Detect Cycle in Directed Graph using Kahn's Algorithm,https://www.geeksforgeeks.org/detect-cycle-in-a-directed-graph-using-bfs/,
+12,Find the number of strongly connected components (Tarjan's Algo),https://www.geeksforgeeks.org/tarjan-algorithm-find-strongly-connected-components/,
+12,Travelling Salesman Problem,https://www.geeksforgeeks.org/travelling-salesman-problem-set-1/,
+13,0/1 Knapsack Problem,https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/,
+13,Subset Sum Problem,https://www.geeksforgeeks.org/subset-sum-problem-dp-25/,
+13,Equal Sum Partition Problem,https://www.geeksforgeeks.org/partition-problem-dp-18/,
+13,Count of Subsets with Given Sum,https://www.geeksforgeeks.org/count-of-subsets-with-sum-equal-to-x/,
+13,Minimum Subset Sum Difference,https://www.geeksforgeeks.org/partition-a-set-into-two-subsets-such-that-the-difference-of-subset-sums-is-minimum/,
+13,Count the Number of Subsets with a Given Difference,https://www.geeksforgeeks.org/number-of-subsets-with-a-given-difference/,
+13,Target Sum,https://leetcode.com/problems/target-sum/,
+13,Unbounded Knapsack,https://www.geeksforgeeks.org/unbounded-knapsack-repetition-items-allowed/,
+13,Rod Cutting Problem,https://www.geeksforgeeks.org/cutting-a-rod-dp-13/,
+13,Coin Change – Minimum Number of Coins,https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/,
+13,Coin Change – Number of ways to make a sum,https://www.geeksforgeeks.org/coin-change-dp-7/,
+13,Maximum Product Cutting,https://www.geeksforgeeks.org/maximum-product-cutting-dp-36/,
+13,Longest Common Subsequence,https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/,
+13,Longest Repeating Subsequence,https://www.geeksforgeeks.org/longest-repeating-subsequence/,
+13,Longest Palindromic Subsequence,https://www.geeksforgeeks.org/longest-palindromic-subsequence-dp-12/,
+13,Minimum Insertions and Deletions to Convert String A to B,https://www.geeksforgeeks.org/minimum-number-deletions-insertions-transform-one-string-another/,
+13,Shortest Common Supersequence,https://www.geeksforgeeks.org/shortest-common-supersequence/,
+13,Longest Increasing Subsequence,https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/,
+13,Longest Bitonic Subsequence,https://www.geeksforgeeks.org/longest-bitonic-subsequence/,
+13,Edit Distance,https://www.geeksforgeeks.org/edit-distance-dp-5/,
+13,Wildcard Pattern Matching,https://www.geeksforgeeks.org/wildcard-pattern-matching/,
+13,Word Break Problem,https://www.geeksforgeeks.org/word-break-problem-dp-32/,
+13,Palindrome Partitioning Problem,https://www.geeksforgeeks.org/palindrome-partitioning-dp-17/,
+13,Boolean Parenthesization Problem,https://www.geeksforgeeks.org/boolean-parenthesization-problem-dp-37/,
+13,Matrix Chain Multiplication,https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/,
+13,Scrambled String,https://www.geeksforgeeks.org/check-if-a-string-is-scramble-of-another-string/,
+13,Egg Dropping Puzzle,https://www.geeksforgeeks.org/egg-dropping-puzzle-dp-11/,
+13,Maximum Profit in Job Scheduling,https://leetcode.com/problems/maximum-profit-in-job-scheduling/,
+13,Burst Balloons,https://leetcode.com/problems/burst-balloons/,
+13,Maximum Path Sum in Matrix,https://www.geeksforgeeks.org/maximum-path-sum-matrix/,
+13,Gold Mine Problem,https://www.geeksforgeeks.org/gold-mine-problem/,
+13,Minimum Cost to Fill Given Weight in a Bag,https://www.geeksforgeeks.org/minimum-cost-to-fill-given-weight-in-a-bag/,
+14,Count set bits in an integer,https://www.geeksforgeeks.org/count-set-bits-in-an-integer/,
+14,Find the only non-repeating element where every element repeats twice,https://www.geeksforgeeks.org/find-the-number-occurring-odd-number-of-times/,
+14,Check if a number is power of two,https://www.geeksforgeeks.org/program-to-find-whether-a-no-is-power-of-two/,
+14,Find position of the only set bit,https://www.geeksforgeeks.org/find-position-of-the-only-set-bit/,
+14,Set the rightmost unset bit,https://www.geeksforgeeks.org/set-rightmost-unset-bit/,
+14,Toggle all bits after the most significant bit including MSB,https://www.geeksforgeeks.org/toggle-bits-0-msb/,
+14,Count number of bits to be flipped to convert A to B,https://www.geeksforgeeks.org/number-of-bit-flips-to-convert-a-to-b/,
+14,Check if two numbers are binary equivalent by flipping one bit,https://www.geeksforgeeks.org/check-binary-representations-two-numbers-differ-bit/,
+14,Swap two numbers without using a temporary variable,https://www.geeksforgeeks.org/swap-two-numbers-without-using-temporary-variable/,
+14,Find XOR of numbers from 1 to n,https://www.geeksforgeeks.org/calculate-xor-1-n/,
+14,Divide two integers without using multiplication division and mod operator,https://leetcode.com/problems/divide-two-integers/,
+14,Power Set (all subsets),https://www.geeksforgeeks.org/power-set/,
+15,Implement Trie (Prefix Tree),https://leetcode.com/problems/implement-trie-prefix-tree/,
+15,Insert and Search in Trie,https://www.geeksforgeeks.org/trie-insert-and-search/,
+15,Word Search II,https://leetcode.com/problems/word-search-ii/,
+15,Longest Word With All Prefixes,https://www.geeksforgeeks.org/longest-word-with-all-prefixes/,
+15,Count Unique Substrings,https://www.geeksforgeeks.org/count-unique-substrings-string-using-trie/,
+15,Maximum XOR of Two Numbers in an Array,https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/,
+15,Implement Phone Directory,https://www.geeksforgeeks.org/phone-directory-using-trie/,
+15,Search Suggestions System,https://leetcode.com/problems/search-suggestions-system/,
+15,Replace Words (using Trie),https://leetcode.com/problems/replace-words/,

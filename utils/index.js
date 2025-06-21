@@ -1,5 +1,7 @@
 const nodemailer = require("nodemailer");
-
+const { Resend } = require("resend");
+require('dotenv').config();
+const resend = new Resend(process.env.EMAIL_API_KEY);
 
 const calculateFormattedAddress = (address) => {
     return `${address.lineOne}, ${address.lineTwo}, ${address.city}, ${address.country} - ${address.pincode}`
@@ -13,28 +15,39 @@ const json = (param) => {
 };
 
 
+// const sendMail = async (to, subject, emailText, emailHTML) => {
+
+//     let transporter = nodemailer.createTransport({
+//         host: 'live.smtp.mailtrap.io',
+//         port: 2525,
+//         secure: false, // true for 465, false for other ports
+
+//         auth: {
+//             user: 'api',
+//             pass: '4deb65af0d8e68f9c5f4cd5d606d85e7'
+
+//         }
+//     });
+
+//     await transporter.sendMail({
+//         from: 'mailtrap@demomailtrap.com', // sender address
+//         to: to, // list of receivers
+//         subject: subject, // Subject line
+//         text: emailText, // plain text body
+//         html: emailHTML, // html body
+//     });
+// }
+
+
 const sendMail = async (to, subject, emailText, emailHTML) => {
-
-    let transporter = nodemailer.createTransport({
-        host: 'live.smtp.mailtrap.io',
-        port: 2525,
-        secure: false, // true for 465, false for other ports
-
-        auth: {
-            user: 'api',
-            pass: '4deb65af0d8e68f9c5f4cd5d606d85e7'
-
-        }
-    });
-
-    await transporter.sendMail({
-        from: 'mailtrap@demomailtrap.com', // sender address
-        to: to, // list of receivers
-        subject: subject, // Subject line
-        text: emailText, // plain text body
-        html: emailHTML, // html body
+    return await resend.emails.send({
+        from: 'noreply@dsawindow.xyz',
+        to: to,
+        subject: subject,
+        html: emailHTML,
     });
 }
+
 
 const getPasswordResetEmailTemplate = (passwordResetLink) => {
     return `
